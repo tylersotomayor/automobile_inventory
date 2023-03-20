@@ -1,0 +1,142 @@
+Pseudocode (summary)
+Module: automobile
+    Class Automobile
+        Define attributes: vin, make, model, year, price
+
+        Method set_make(make)
+            Set self.make to make
+
+        Method set_model(model)
+            Set self.model to model
+
+        Method set_year(year)
+            Set self.year to year
+
+        Method set_price(price)
+            Set self.price to price
+
+        Method __str__()
+            Return string representation of Automobile object
+
+Module: automobile_inventory
+    Class AutomobileInventory
+        Define attribute: automobiles (list)
+
+        Method add_auto(auto)
+            Add auto to automobiles list
+
+        Method display_autos()
+            Print each automobile in the list
+
+        Method get_stats()
+            Calculate and display statistics for the automobiles in the list
+
+
+    Module: sample_data
+        Function generate_random_autos()
+            Generate a list of random automobiles
+
+
+Module: menu_actions
+    Function get_user_selection()
+        Display the main menu and prompt the user for a valid selection
+
+    Function add_auto(inventory)
+        Prompt the user for automobile details and add the automobile to the inventory
+
+    Function add_sample_data(inventory)
+        Generate random automobiles and add them to the inventory
+
+    Function display_autos(inventory)
+        Display all automobiles in the inventory
+
+    Function show_stats(inventory)
+        Display statistics about the automobiles in the inventory
+
+    Function save_data(inventory)
+        Save the inventory data to a JSON file
+
+    Function load_data(inventory)
+        Load inventory data from a JSON file
+
+    Function clear_data(inventory)
+        Clear all data from the inventory
+
+    Function quit_program()
+        Quit the program
+
+
+Module: main
+    Function main()
+        Initialize an AutomobileInventory object
+        Enter a loop:
+            Get user selection from the menu
+            Perform the corresponding action based on the user selection
+            Quit the program if the user selects 'Q'
+
+    Call main() function
+----------------------------------------------------------------------------------------------------
+Pseudocode (detailed)
+
+Import the required modules and classes (Automobile, AutomobileInventory, and menu_actions).
+Define the main function:
+a. Create an instance of the AutomobileInventory class.
+b. Call the load_data method to load previously saved automobile data from a JSON file.
+c. Display a welcome message.
+d. Enter a loop to display the main menu and handle user input:
+    i. Display the main menu with options: Add Automobile, Display Automobiles, Display Stats, Load Sample Data,
+        Save Data, and Quit.
+    ii. Get the user's choice.
+    iii. Use a dictionary to map the user's choice to the corresponding menu action function.
+    iv. Call the selected menu action function, passing the AutomobileInventory instance as an argument.
+    v. If the user selects 'Quit', exit the loop.
+
+*Call the main function to start the program.*
+
+Import the required modules and classes (Automobile and sample_data).
+Define the menu action functions, each taking the AutomobileInventory instance as an argument:
+    a. add_auto:
+        i. Get the user input for the automobile's VIN, make, model, year, and price.
+        ii. Create an instance of the Automobile class with the given input.
+        iii. Add the Automobile instance to the AutomobileInventory using the add_auto method.
+        iv. Print a success message.
+    b. display_autos:
+        i. Call the display_autos method of the AutomobileInventory instance.
+    c. display_stats:
+        i. Call the get_stats method of the AutomobileInventory instance.
+    d. load_sample_data:
+        i. Ask the user for the number of sample automobiles to generate.
+        ii. Generate a list of random Automobile data dictionaries using the generate_random_autos function from the sample_data module.
+        iii. Create Automobile instances for each data dictionary and add them to the AutomobileInventory using the add_auto method.
+        iv. Print a success message.
+    e. save_data:
+        i. Call the save_data method of the AutomobileInventory instance.
+        ii. Print a success message.
+    f. quit_program:
+        i. Call the save_data method of the AutomobileInventory instance to save any changes before exiting.
+        ii. Print a farewell message.
+        iii. Return a sentinel value to signal the main loop to exit.
+
+
+Define the Automobile class with the following methods:
+    a. Constructor: Initialize with vin, make, model, year, and price attributes.
+    b. get_vin: Return the vin attribute.
+    c. get_make: Return the make attribute.
+    d. get_model: Return the model attribute.
+    e. get_year: Return the year attribute.
+    f. get_price: Return the price attribute.
+    g. str: Return a formatted string representation of the Automobile object.
+
+Define the AutomobileInventory class with the following methods:
+    a. Constructor: Initialize with an empty list of automobiles.
+    b. add_auto: Add an Automobile object to the list.
+    c. display_autos: Print the automobiles in the list or a message if the list is empty.
+    d. get_stats: Print statistics about the automobiles in the list or a message if the list is empty.
+    e. save_data: Save the list of automobiles to a JSON file.
+    f. load_data: Load the list of automobiles from a JSON file or do nothing if the file doesn't exist.
+    g. clear_data: Clear the list of automobiles and save the changes to the JSON file.
+
+Define the sample_data module with the following data and function:
+    a. MAKES: List of available car makes.
+    b. MODELS: Dictionary of available car models per make.
+    c. generate_random_autos: Generate a list of random Automobile data dictionaries.
